@@ -15,7 +15,7 @@ path = "/sts/v1.0/issueToken"
 SpeechHost = "speech.platform.bing.com"
 
 
-class TTSTranslator():
+class TTSTranslator(object):
     """
     Interface class for the Microsoft Cognitive Services Text-to-speech translator
     """
