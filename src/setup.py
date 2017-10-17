@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='pycsspeechtts',
-      version='1.0.0',
+      version='1.0.1',
       description='Python 3 interface to Microsoft Cognitive Services Text To Speech',
       url='https://github.com/jeroenterheerdt/pycsspeechtts',
       author='Jeroen ter Heerdt',
