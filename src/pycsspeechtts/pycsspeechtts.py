@@ -42,7 +42,7 @@ class TTSTranslator(object):
         voice.set('{http://www.w3.org/XML/1998/namespace}lang', language)
         voice.set('{http://www.w3.org/XML/1998/namespace}gender', gender)
         voice.set(
-            'name', 'Microsoft Server Speech Text to Speech Voice ('+language+', '+voiceType+')')
+            'name', 'Microsoft Server Speech Text to Speech Voice ('+language+'-'+voiceType+')')
 
         prosody = ElementTree.SubElement(voice, 'prosody')
         prosody.set('rate', rate)
