@@ -35,6 +35,10 @@ class TTSTranslator(object):
     def speak(self, language="en-us", gender="Female", voiceType="JessaNeural",
               output="riff-24khz-16bit-mono-pcm", rate="+0.00%", volume="+0.00%",
               pitch="default", contour="(0%,+0%) (100%,+0%)", text=None):
+        def name_lang(language):
+            lang1,lang2 = language.split("-")
+            return "{}-{}".format(lang1,lang2.upper())
+        
         body = ElementTree.Element('speak', version='1.0')
         body.set('{http://www.w3.org/XML/1998/namespace}lang', language)
 
@@ -42,7 +46,7 @@ class TTSTranslator(object):
         voice.set('{http://www.w3.org/XML/1998/namespace}lang', language)
         voice.set('{http://www.w3.org/XML/1998/namespace}gender', gender)
         voice.set(
-            'name', 'Microsoft Server Speech Text to Speech Voice ('+language+'-'+voiceType+')')
+            'name', 'Microsoft Server Speech Text to Speech Voice ('+name_lang(language)+', '+voiceType+')')
 
         prosody = ElementTree.SubElement(voice, 'prosody')
         prosody.set('rate', rate)
