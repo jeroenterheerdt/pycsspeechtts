@@ -24,13 +24,9 @@ class TTSTranslator(object):
         headers = {"Ocp-Apim-Subscription-Key": self._apiKey}
         response = requests.post(AccessTokenUrlTemplate.format(
             self._geoLocation), headers=headers)
-        if response.status_code == requests.codes.ok:
-            _LOGGER.debug("Connection Initialized OK")
-            self._accesstoken = str(response.text)
-        else:
-            _LOGGER.error("Connection Intialization failed, statuscode " +
-                          str(response.status_code)+", reason: "+response.text)
-            sys.exit(1)
+        response.raise_for_status()
+        _LOGGER.debug("Connection Initialized OK")
+        self._accesstoken = str(response.text)
 
     def speak(self, language="en-us", gender="Female", voiceType="JessaNeural",
               output="riff-24khz-16bit-mono-pcm", rate="+0.00%", volume="+0.00%",
