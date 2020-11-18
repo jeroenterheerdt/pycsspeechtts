@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
-with open("../README.md", "r") as fh:
+with open("README.md", "r") as fh:
     long_description = fh.read()
 setup(name='pycsspeechtts',
-      version='1.0.4',
+      version='1.0.5',
       description='Python 3 interface to Microsoft Cognitive Services Text To Speech',
       long_description=long_description,
       long_description_content_type="text/markdown",
@@ -13,4 +13,5 @@ setup(name='pycsspeechtts',
       tests_require=['mock'],
       test_suite='tests',
       packages=find_packages(exclude=["dist"]),
+      include_package_data=True,
       zip_safe=True)
