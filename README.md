@@ -16,5 +16,12 @@ with open("file2.wav", "wb") as f:
         f.write(data)
 ```
 
+You can also use custom voice by specifying `isCustom=True` and providing a `customEndpoint`:
+```python
+from pycsspeechtts import TTSTranslator
+t = TTSTranslator("YOUR API KEY","westeurope", isCustom=True, customEndpoint=MyEndpoint)
+data = t.speak(language='en-gb',gender='Male',voiceType="ArchieNeural",text="This is a test for custom voice")
+```
+
 See test.py for more samples.
 Refer to https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support to find the valid values for language, gender, voicetype and output formats.

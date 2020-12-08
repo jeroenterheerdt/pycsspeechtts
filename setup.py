@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as fh:
     long_description = fh.read()
 setup(name='pycsspeechtts',
-      version='1.0.5',
+      version='1.0.6',
       description='Python 3 interface to Microsoft Cognitive Services Text To Speech',
       long_description=long_description,
       long_description_content_type="text/markdown",
