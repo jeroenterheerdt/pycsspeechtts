@@ -73,7 +73,7 @@ class TTSTranslator(object):
             prosody.set('volume', volume)
             prosody.set('pitch', pitch)
             prosody.set('contour', contour)
-            prosody.text = text
+            prosody.append(ElementTree.fromstring(text))
 
         response = requests.post(
             endpoint, ElementTree.tostring(body), headers=headers)
