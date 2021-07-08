@@ -2,11 +2,14 @@ from pycsspeechtts import TTSTranslator
 useCustom = True
 api_key = "YOUR_API_KEY"
 custom_endpoint = "custom_endpoint"
+region = "westus"
 
 if not useCustom:
-    t = TTSTranslator(api_key, region="westus")
+    t = TTSTranslator(api_key, region=region)
     # Speaking with default language of english US and default Female voice
     data = t.speak(text='This is a test')
+    # Adding a pause to test XML support
+    data = t.speak(text='This is a test with a <break time="2s" />long pause')
     # Change speed with -50%
     data = t.speak(text="This is a test", rate="-50%")
     # Change pitch to high
@@ -22,7 +25,7 @@ if not useCustom:
                 contour="(0%,+0%) (100%,+100%)")
 else:
     # Test custom voice
-    t = TTSTranslator(api_key, region="westus", isCustom=True, customEndpoint=custom_endpoint)
+    t = TTSTranslator(api_key, region=region, isCustom=True, customEndpoint=custom_endpoint)
     data = t.speak(language='en-gb',gender='Male',voiceType="ArchieNeural",text="This is a test for custom voice")
 
 if data == None:
