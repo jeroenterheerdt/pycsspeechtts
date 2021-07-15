@@ -68,12 +68,12 @@ class TTSTranslator(object):
                 "X-Search-ClientID": "1ECFAE91408841A480F00935DC390960",
                 "User-Agent": "PYCSSpeechTTS"
                 }
-            prosody = ElementTree.SubElement(voice, 'prosody')
+            voice.append(ElementTree.XML('<prosody>'+text+'</prosody>'))
+            prosody = voice.find('prosody')
             prosody.set('rate', rate)
             prosody.set('volume', volume)
             prosody.set('pitch', pitch)
             prosody.set('contour', contour)
-            prosody.text = text
 
         response = requests.post(
             endpoint, ElementTree.tostring(body), headers=headers)
