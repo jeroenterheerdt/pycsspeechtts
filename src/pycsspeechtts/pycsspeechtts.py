@@ -45,6 +45,7 @@ class TTSTranslator(object):
         voice = ElementTree.SubElement(body, 'voice')
         voice.set('{http://www.w3.org/XML/1998/namespace}lang', language)
         voice.set('{http://www.w3.org/XML/1998/namespace}gender', gender)
+        voice.set('{http://www.w3.org/XML/1998/namespace}mstts', 'http://www.w3.org/2001/mstts')
         voice.set(
             'name', 'Microsoft Server Speech Text to Speech Voice ('+name_lang(language)+', '+voiceType+')')
 
