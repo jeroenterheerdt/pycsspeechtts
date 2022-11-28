@@ -41,6 +41,8 @@ class TTSTranslator(object):
         
         body = ElementTree.Element('speak', version='1.0')
         body.set('{http://www.w3.org/XML/1998/namespace}lang', language)
+        body.set('xmlns','http://www.w3.org/2001/10/synthesis')
+        body.set('xmlns:mstts', 'http://www.w3.org/2001/mstts')
 
         voice = ElementTree.SubElement(body, 'voice')
         voice.set('{http://www.w3.org/XML/1998/namespace}lang', language)
