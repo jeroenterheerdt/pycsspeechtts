@@ -36,8 +36,15 @@ class TTSTranslator(object):
               output="riff-24khz-16bit-mono-pcm", rate="+0.00%", volume="+0.00%",
               pitch="default", contour="(0%,+0%) (100%,+0%)", text=None):
         def name_lang(language):
-            lang1,lang2 = language.split("-")
-            return "{}-{}".format(lang1,lang2.upper())
+            parts = language.split("-", 1)
+            lang1 = parts[0]
+            lang2 = parts[1]
+
+            subparts = lang2.split("-", 1)
+            subpart1 = subparts[0].upper()
+            subpart2 = subparts[1] if len(subparts) > 1 else ""
+
+            return "{}-{}-{}".format(lang1, subpart1, subpart2).rstrip("-")
         
         body = ElementTree.Element('speak', version='1.0')
         body.set('{http://www.w3.org/XML/1998/namespace}lang', language)
